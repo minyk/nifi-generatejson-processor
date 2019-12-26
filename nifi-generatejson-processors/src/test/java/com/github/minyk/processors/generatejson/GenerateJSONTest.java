@@ -14,20 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.nifi.processor;
+package com.github.minyk.processors.generatejson;
+
+import org.apache.nifi.util.TestRunner;
+import org.apache.nifi.util.TestRunners;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.IOException;
 
-import org.apache.nifi.util.MockFlowFile;
-import org.apache.nifi.util.TestRunner;
-import org.apache.nifi.util.TestRunners;
-import org.junit.Test;
-import com.google.gson.Gson;
 
 /**
  * Unit tests for the GenerateJSON processor.
  */
-public class TestGenerateJSON {
+public class GenerateJSONTest {
 
     @Test
     public void testGenerateCustomText() throws IOException {
@@ -43,7 +43,6 @@ public class TestGenerateJSON {
     }
 
     /*
-
     @Test
     public void testInvalidCustomText() throws IOException {
         TestRunner runner = TestRunners.newTestRunner(new GenerateJSON());
@@ -51,12 +50,10 @@ public class TestGenerateJSON {
         runner.setProperty(GenerateJSON.DATA_FORMAT, GenerateJSON.DATA_FORMAT_BINARY);
         runner.setProperty(GenerateJSON.CUSTOM_TEXT, "This is my custom text!");
         runner.assertNotValid();
-
         runner.setProperty(GenerateJSON.DATA_FORMAT, GenerateJSON.DATA_FORMAT_TEXT);
         runner.setProperty(GenerateJSON.UNIQUE_FLOWFILES, "true");
         runner.assertNotValid();
     }
-
     @Test
     public void testDynamicPropertiesToAttributes() throws IOException {
         TestRunner runner = TestRunners.newTestRunner(new GenerateJSON());
@@ -65,9 +62,7 @@ public class TestGenerateJSON {
         runner.setProperty("plain.dynamic.property", "Plain Value");
         runner.setProperty("expression.dynamic.property", "${literal('Expression Value')}");
         runner.assertValid();
-
         runner.run();
-
         runner.assertTransferCount(GenerateJSON.SUCCESS, 1);
         MockFlowFile generatedFlowFile = runner.getFlowFilesForRelationship(GenerateJSON.SUCCESS).get(0);
         generatedFlowFile.assertAttributeEquals("plain.dynamic.property", "Plain Value");

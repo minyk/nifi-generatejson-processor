@@ -25,4 +25,6 @@ hs_err_pid*
 # IDE specific files
 .idea
 /nifi-protobuf-processor.iml
-/nifi-generateJSON-processor.iml
+nifi-generateJSON-processors.iml
+nifi-generatejson-bundle.iml
+nifi-generatejson-nar.iml

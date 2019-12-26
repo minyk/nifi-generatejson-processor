@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.nifi.processor;
+package com.github.minyk.processors.generatejson;
 
 import java.io.IOException;
 import java.io.OutputStream;

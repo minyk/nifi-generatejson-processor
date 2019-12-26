@@ -17,19 +17,25 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.apache.nifi</groupId>
-        <artifactId>nifi-nar-bundles</artifactId>
-        <version>1.10.0</version>
+        <groupId>com.github.minyk</groupId>
+        <artifactId>nifi-generatejson-bundle</artifactId>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.github.minyk</groupId>
-    <artifactId>nifi-generatejson-bundle</artifactId>
+    <artifactId>nifi-generatejson-nar</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>nar</packaging>
+    <properties>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
+        <source.skip>true</source.skip>
+    </properties>
 
-    <modules>
-        <module>nifi-generatejson-processors</module>
-        <module>nifi-generatejson-nar</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>com.github.minyk</groupId>
+            <artifactId>nifi-generatejson-processors</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
